@@ -229,7 +229,6 @@ int countRecordsInBin(string binFileName)
 
 int getRandomInt(int left, int right)
 {
-	
 	return left + rand() % (right - left + 1);
 }
 

@@ -37,23 +37,33 @@ bool isFileExist(string fileName)
 }
 
 
+int getRandomInt(int left, int right)
+{
+	return left + rand() % (right - left + 1);
+}
+
+
 void createFile(string fileName)
 {
 	ofstream newFile;
 	newFile.open(fileName);
-	cout << "Введите некоторое кол-во строк с числами через пробел.\nЧтобы закончить ввод нажмите [Enter]\n";
-	string line;
-	bool isFirstString = true;
-	getline(cin, line);
-	while (line != "\0")
+	int numberOfRows = getRandomInt(3, 10);
+	int amountOfNumbers;
+	for (int i = 0; i < numberOfRows; i++)
 	{
-		if (!isFirstString)
+		amountOfNumbers = getRandomInt(3, 10);
+		for (int j = 0; j < amountOfNumbers; j++)
 		{
-			newFile << '\n';
+			newFile << getRandomInt(-30, 30);
+			if (j < amountOfNumbers - 1)
+			{
+				newFile << " ";
+			}
 		}
-		newFile << line;
-		isFirstString = false;
-		getline(cin, line);
+		if (i < numberOfRows - 1)
+		{
+			newFile << "\n";
+		}
 	}
 	if (!newFile.good())
 	{
@@ -61,6 +71,7 @@ void createFile(string fileName)
 	}
 	newFile.close();
 }
+
 
 void printFileСontents(string fileName)
 {

@@ -50,6 +50,7 @@ void main()
 		{
 			cout << "ֲגוהטעו טלÿ פאיכא:\n";
 			cin >> fileName;
+			fileName += ".txt";
 			isNameEntered = true;
 		}
 		if (isNameEntered)
